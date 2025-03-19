@@ -20,7 +20,59 @@
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #FDFBEE;
+  color: #659DAC;
+}
+
+
+@keyframes slow-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.custom-spin {
+  animation: slow-spin 10s linear infinite; /* Adjust the time (10s) for a slower spin */
+}
+
+
+
+.anticlock-spin{
+  /* rotate: 277deg; */
+  animation: anticlock-spin 10s linear infinite;
+}
+
+@keyframes anticlock-spin {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+
+.bg{
+  background-image: url('/blob.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+
+.proj1{
+  background-image: url('/proj1.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: var(--foreground);
+
+}
+
+
+.j{
+  filter: drop-shadow(2px 3px 2px rgba(0, 0, 0, 0.516));
 }
