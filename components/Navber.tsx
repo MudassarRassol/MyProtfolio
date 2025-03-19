@@ -14,7 +14,7 @@ const Navbar = () => {
       <div className="flex items-center justify-between px-4 py-3 md:px-10">
         {/* Logo */}
         <Link href="/">
-          <Image src={logo} alt="Logo" width={140} height={26} />
+          <img src={logo} alt="Logo" width={140} height={26} />
         </Link>
 
         {/* Desktop Menu */}
