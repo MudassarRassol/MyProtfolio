@@ -50,7 +50,7 @@ const Contact = () => {
   };
 
   return (
-    <div id="contact" className="px-4">
+    <div id="contact" className="md:px-4">
       <div className="text-center border-t-2 border-[#FE4F2D] mb-10 pt-10">
         <h1 className="text-4xl font-bold text-[#FE4F2D]">Get In Touch</h1>
         <p>{`We'd`} love to hear from you! Send us a message and {`we'll`} get back to you as soon as possible.</p>
