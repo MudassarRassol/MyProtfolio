@@ -10,6 +10,8 @@ const transporter = nodemailer.createTransport({
   },
 });
 
+
+console.log('Api is working')
 // Function to Send Email
 const sendEmail = async (name: string, email: string, message: string): Promise<boolean> => {
   try {

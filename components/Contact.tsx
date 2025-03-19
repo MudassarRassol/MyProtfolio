@@ -34,7 +34,7 @@ const Contact = () => {
     }
 
     try {
-      const response = await axios.post("https://chimerical-empanada-e311d8.netlify.app/api/email", formData, {
+      const response = await axios.post("/api/email", formData, {
         headers: { "Content-Type": "application/json" },
       });
       toast.success(response.data.success); // Show success toast
