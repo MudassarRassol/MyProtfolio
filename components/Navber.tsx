@@ -18,7 +18,7 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex gap-6 font-bold">
+        <div className="hidden md:flex gap-6 ">
           {["About", "Experience", "Projects", "Contact"].map((item, index) => (
             <Link
               key={index}

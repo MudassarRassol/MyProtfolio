@@ -26,15 +26,15 @@ const Contact = () => {
     e.preventDefault();
     setStatus({ success: "", error: "" });
 
-    const { name, email, message } = formData;
+    const { name, email, message , subject} = formData;
 
-    if (!name || !email || !message) {
+    if (!name || !email || !message || !subject) {
       setStatus({ success: "", error: "Please fill in all required fields." });
       return;
     }
 
     try {
-      const response = await axios.post("https://mudassarrasoolchishti.netlify.app/api/email", formData, {
+      const response = await axios.post("/api/email", formData, {
         headers: { "Content-Type": "application/json" },
       });
       toast.success(response.data.success); // Show success toast
