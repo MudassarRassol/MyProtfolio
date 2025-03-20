@@ -56,7 +56,7 @@ const Experience = () => {
       className="h-auto md:min-h-[100vh] w-full border-t-2 border-[#FE4F2D] px-6 py-10"
     >
       <h1 className="text-4xl text-center font-bold text-[#FE4F2D]">Experience</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-0  md:gap-2 w-[90%] md:w-[70%] mx-auto mt-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-0  md:gap-2 w-[90%] md:w-[70%] mx-auto mt-10 md:mt-22">
         {experiences.map((exp, index) => (
           <div
             key={index}
