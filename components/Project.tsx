@@ -18,7 +18,7 @@ const Project = () => {
         bg-[#FDFBEE] rounded-b-full rounded-l-full absolute -right-14 -top-14
         border-2 border-[#FE4F2D] flex items-center justify-center 
         hover:scale-[1.25] transition-transform duration-300 ease-in-out cursor-pointer z-50"
-        onClick={() => window.open("https://bloger-g5qouka2x-mudassardevs-projects.vercel.app/", "_blank")}
+        onClick={() => window.open("https://mrblogerproj1.netlify.app/", "_blank")}
               >
                 <CiLocationArrow1 size="40" color="#FE4F2D"  />
               </div>

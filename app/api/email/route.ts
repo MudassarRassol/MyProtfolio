@@ -22,6 +22,7 @@ const sendEmail = async (name: string, email: string, message: string): Promise<
       html: `
         <h2>New Contact Message</h2>
         <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Subject:</strong> ${subject}</p>
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Message:</strong></p>
         <p>${message}</p>
@@ -39,10 +40,10 @@ export async function POST(req: Request) {
   try {
     
 console.log('Api is working')
-    const { name, email, message } = await req.json();
+    const { name, email, message ,subject} = await req.json();
 
     // Validate Fields
-    if (!name || !email || !message) {
+    if (!name || !email || !message ||!subject) {
       return NextResponse.json({ error: "All fields are required." }, { status: 400 });
     }
 
