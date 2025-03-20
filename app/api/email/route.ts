@@ -10,6 +10,7 @@ const transporter = nodemailer.createTransport({
   },
 });
 
+
 // Function to Send Email
 const sendEmail = async (name: string, email: string, message: string): Promise<boolean> => {
   try {
@@ -33,61 +34,33 @@ const sendEmail = async (name: string, email: string, message: string): Promise<
   }
 };
 
-// ✅ Handle CORS Preflight Request (OPTIONS)
-export async function OPTIONS() {
-  return NextResponse.json({}, { 
-    status: 200,
-    headers: {
-      "Access-Control-Allow-Origin": "*", 
-      "Access-Control-Allow-Methods": "POST, OPTIONS",
-      "Access-Control-Allow-Headers": "Content-Type",
-    },
-  });
-}
-
-// ✅ Handle Contact Form Submission (POST)
+// Handle Contact Form Submission
 export async function POST(req: Request) {
   try {
-    console.log("API is working");
     
+console.log('Api is working')
     const { name, email, message } = await req.json();
 
     // Validate Fields
     if (!name || !email || !message) {
-      return NextResponse.json({ error: "All fields are required." }, { 
-        status: 400,
-        headers: { "Access-Control-Allow-Origin": "*" }
-      });
+      return NextResponse.json({ error: "All fields are required." }, { status: 400 });
     }
 
     // Validate Email Format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-      return NextResponse.json({ error: "Invalid email format." }, { 
-        status: 400,
-        headers: { "Access-Control-Allow-Origin": "*" }
-      });
+      return NextResponse.json({ error: "Invalid email format." }, { status: 400 });
     }
 
     // Send Email
     const emailSent = await sendEmail(name, email, message);
     if (!emailSent) {
-      return NextResponse.json({ error: "Failed to send email. Try again later." }, { 
-        status: 500,
-        headers: { "Access-Control-Allow-Origin": "*" }
-      });
+      return NextResponse.json({ error: "Failed to send email. Try again later." }, { status: 500 });
     }
 
-    return NextResponse.json({ success: "Message sent successfully!" }, { 
-      status: 200,
-      headers: { "Access-Control-Allow-Origin": "*" }
-    });
-
+    return NextResponse.json({ success: "Message sent successfully!" }, { status: 200 });
   } catch (error) {
     console.error("Error handling contact form:", error);
-    return NextResponse.json({ error: "Internal Server Error" }, { 
-      status: 500,
-      headers: { "Access-Control-Allow-Origin": "*" }
-    });
+    return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
   }
 }
