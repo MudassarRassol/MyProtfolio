@@ -7,6 +7,7 @@ import contact from "@/public/3288524-removebg-preview.png";
 import toast from 'react-hot-toast';
 
 const Contact = () => {
+  const [sending,setsending] = useState(false)
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -34,15 +35,20 @@ const Contact = () => {
     }
 
     try {
+      setsending(true); // Disable form submission while sending email
       const response = await axios.post("/api/email", formData);
       toast.success(response.data.success); // Show success toast
       setStatus({ success: response.data.success, error: "" });
+      setsending(false); // Enable form
       setFormData({ name: "", email: "", subject: "", message: "" }); // Reset form
     } catch (error) {
       if (axios.isAxiosError(error) && error.response?.data?.error) {
+        toast.error(" Error  occurred  ")
         setStatus({ success: "", error: error.response.data.error });
       } else {
         setStatus({ success: "", error: "Something went wrong. Please try again later." });
+        toast.error("Something went wrong. Please try again later.")
+        setsending(false); // Enable form
       }
     }
   };
@@ -107,8 +113,13 @@ const Contact = () => {
                 required
               ></textarea>
             </div>
-            <button type="submit" className="w-full bg-[#FE4F2D] text-white p-2 rounded-lg hover:bg-[#659DAC] transition">
-              Submit
+            <button type="submit" className="w-full bg-[#FE4F2D] text-white p-2 rounded-lg hover:bg-[#659DAC] transition" disabled={sending} >
+              
+              {
+                sending? (
+                    "Sending..."
+                ) : "Submit"
+              }
             </button>
           </form>
           {status.success && <p className="text-green-500 mt-2">{status.success}</p>}
