@@ -3,54 +3,51 @@ import React from "react";
 const Experience = () => {
   const experiences = [
     {
-      role: "Software Engineer",
-      company: "Valor PayTech · Full-time",
-      duration: "December 2024 - Present",
-      location: "Chennai, India - Onsite",
+      role: "Web Developer",
+      company: "Learn to Earn",
+      duration: "2023",
+      location: "Remote",
       responsibilities: [
-        "Implemented feature enhancements based on user feedback, contributing to continuous improvement and increased customer satisfaction.",
-        "Identified and resolved software bugs through thorough testing and debugging, ensuring a seamless user experience and maintaining application stability.",
-        "Collaborated with multiple internal teams to gather requirements and prioritize bug fixes and feature requests, ensuring alignment with overall project objectives.",
-        "Conducted peer reviews, fostering a culture of collaboration and continuous learning within the team.",
-      ],
+        "Database administration and website design.",
+        "Built the logic for a streamlined ad-serving platform that scaled.",
+        "Worked on educational institutions and online classroom management solutions."
+      ]
     },
     {
       role: "Frontend Developer",
-      company: "Tech Solutions Inc. · Contract",
-      duration: "June 2023 - November 2024",
+      company: "Freelance",
+      duration: "2024 - 2025",
       location: "Remote",
       responsibilities: [
-        "Developed and optimized UI components using React.js and Tailwind CSS, improving user engagement and accessibility.",
-        "Worked closely with backend developers to integrate RESTful APIs and ensure seamless data flow.",
-        "Optimized application performance, reducing page load time by 30% through efficient code refactoring.",
-        "Collaborated with UX designers to improve usability and implemented A/B testing strategies.",
-      ],
-    },
-    {
-      role: "UI Developer",
-      company: "Creative Agency · Full-time",
-      duration: "March 2022 - May 2023",
-      location: "Bangalore, India - Hybrid",
-      responsibilities: [
-        "Designed and developed interactive UI components, ensuring accessibility and responsiveness across all devices.",
-        "Enhanced animations and transitions using Framer Motion to improve user engagement.",
-        "Created reusable design systems and maintained a component library for better scalability.",
-        "Collaborated with designers and developers to translate Figma designs into live products.",
-      ],
+        "Developed responsive and interactive web interfaces using HTML, CSS, and JavaScript.",
+        "Implemented React.js components for better user experience and maintainability.",
+        "Collaborated with clients to design and develop custom web solutions based on business needs."
+      ]
     },
     {
       role: "Intern - Web Developer",
-      company: "Startup XYZ · Internship",
-      duration: "August 2021 - February 2022",
+      company: "Learn to Earn (Training Program)",
+      duration: "6-Month Internship",
+      location: "Pakpattan, Punjab",
+      responsibilities: [
+        "Completed hands-on training in web development, focusing on both frontend and backend technologies.",
+        "Developed small projects using React, Node.js, Express, and MongoDB.",
+        "Worked on debugging and performance optimization for web applications."
+      ]
+    },
+    {
+      role: "UI/UX Designer & Developer",
+      company: "Creative Agency",
+      duration: "2020 - 2021",
       location: "Remote",
       responsibilities: [
-        "Assisted in developing web applications using React.js and Node.js.",
-        "Fixed bugs and improved website performance by optimizing API calls.",
-        "Created basic RESTful APIs for minor backend integrations.",
-        "Contributed to documentation and testing processes for a smooth development workflow.",
-      ],
-    },
-  ];
+        "Designed interactive UI components ensuring accessibility and responsiveness across devices.",
+        "Created wirefr ames and prototypes to visualize website layouts and improve user experience.",
+        "Collaborated with designers and developers to translate Figma designs into fully functional web pages."
+      ]
+    }
+  ]
+  
 
 
   return (
