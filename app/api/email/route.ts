@@ -12,7 +12,7 @@ const transporter = nodemailer.createTransport({
 
 
 // Function to Send Email
-const sendEmail = async (name: string, email: string, message: string): Promise<boolean> => {
+const sendEmail = async (name: string, email: string, message: string,subject:string): Promise<boolean> => {
   try {
     await transporter.sendMail({
       from: `"Contact Form" <${process.env.GMAIL_USER}>`,
@@ -38,7 +38,6 @@ const sendEmail = async (name: string, email: string, message: string): Promise<
 // Handle Contact Form Submission
 export async function POST(req: Request) {
   try {
-    
 console.log('Api is working')
     const { name, email, message ,subject} = await req.json();
 
@@ -54,7 +53,7 @@ console.log('Api is working')
     }
 
     // Send Email
-    const emailSent = await sendEmail(name, email, message);
+    const emailSent = await sendEmail(name, email, message,subject);
     if (!emailSent) {
       return NextResponse.json({ error: "Failed to send email. Try again later." }, { status: 500 });
     }
