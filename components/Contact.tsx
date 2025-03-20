@@ -1,16 +1,13 @@
 "use client";
 
 import React, { useState } from "react";
-import axios from "axios";
 import Image from "next/image";
 import contact from "@/public/3288524-removebg-preview.png";
 import toast from 'react-hot-toast';
-
-export const runtime = "nodejs";
-
+import { sendEmail } from "@/app/actions/sendEmail"; // Import the server action
 
 const Contact = () => {
-  const [sending,setsending] = useState(false)
+  const [sending, setSending] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -18,43 +15,29 @@ const Contact = () => {
     message: "",
   });
 
-  const [status, setStatus] = useState({ success: "", error: "" });
-
-  // Handle input changes
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // Handle form submission
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setStatus({ success: "", error: "" });
+    setSending(true);
+    const { name, email, subject, message } = formData;
 
-    const { name, email, message , subject} = formData;
-
-    if (!name || !email || !message || !subject) {
-      setStatus({ success: "", error: "Please fill in all required fields." });
+    if (!name || !email || !subject || !message) {
+      toast.error("Please fill in all required fields.");
+      setSending(false);
       return;
     }
 
-    try {
-      setsending(true)
-      const response = await axios.post("/api/email", formData, {
-        headers: { "Content-Type": "application/json" },
-      });
-      toast.success(response.data.success); // Show success toast
-      setsending(false)
-      setStatus({ success: response.data.success, error: "" });
-      setFormData({ name: "", email: "", subject: "", message: "" }); // Reset form
-    } catch (error) {
-      if (axios.isAxiosError(error) && error.response?.data?.error) {
-        setsending(false)
-        setStatus({ success: "", error: error.response.data.error });
-      } else {
-        setsending(false)
-        setStatus({ success: "", error: "Something went wrong. Please try again later." });
-      }
+    const emailSent = await sendEmail(name, email, subject, message);
+    if (emailSent) {
+      toast.success("Message sent successfully!");
+      setFormData({ name: "", email: "", subject: "", message: "" });
+    } else {
+      toast.error("Failed to send email. Try again later.");
     }
+    setSending(false);
   };
 
   return (
@@ -103,6 +86,7 @@ const Contact = () => {
                 onChange={handleChange}
                 className="w-full p-2 border rounded-lg focus:outline-none focus:ring-2"
                 placeholder="Enter subject"
+                required
               />
             </div>
             <div>
@@ -117,16 +101,11 @@ const Contact = () => {
                 required
               ></textarea>
             </div>
-            <button type="submit" className="w-full bg-[#FE4F2D] text-white p-2 rounded-lg hover:bg-[#659DAC] transition  " 
-            disabled={sending} 
-            >
-              {
-                sending ? 'Sending...' : 'Send Message'
-              }
+            <button type="submit" className="w-full bg-[#FE4F2D] text-white p-2 rounded-lg hover:bg-[#659DAC] transition" 
+              disabled={sending}>
+              {sending ? 'Sending...' : 'Send Message'}
             </button>
           </form>
-          {status.success && <p className="text-green-500 mt-2">{status.success}</p>}
-          {status.error && <p className="text-red-500 mt-2">{status.error}</p>}
         </div>
       </div>
     </div>
