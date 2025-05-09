@@ -8,6 +8,7 @@ import tailwind from "@/public/tailwind-svgrepo-com.svg";
 import nextjs from "@/public/nextjs-svgrepo-com (2).svg";
 import mongodb from "@/public/mongodb-svgrepo-com.svg";
 import { GoDesktopDownload } from "react-icons/go";
+import Link from "next/link";
 import { RiScrollToBottomFill } from "react-icons/ri";  
 const Herosection = () => {
       const scrollToAbout = () => {
@@ -28,30 +29,30 @@ const Herosection = () => {
         </p>
         {/* //icon instagram linkedin and github */}
         <div className="flex space-x-2 md:space-x-4 my-10 ">
-          <a href="https://www.instagram.com/mudassar_rasool_07" target="_blank" className="hover:scale-125 transition-all duration-300">
+          <Link href="https://www.instagram.com/mudassar_rasool_07" target="_blank" className="hover:scale-125 transition-all duration-300">
             <Image
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/2048px-Instagram_logo_2022.svg.png"
               alt="Instagram Icon"
               width={32}
               height={32}
             />
-          </a>
-          <a href="https://www.linkedin.com/in/mudassar-rasool-chishti-b15130300/" target="_blank" className="hover:scale-125 transition-all duration-300">
+          </Link>
+          <Link href="https://www.linkedin.com/in/mudassar-rasool-chishti-b15130300/" target="_blank" className="hover:scale-125 transition-all duration-300">
             <Image
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/LinkedIn_icon.svg/2048px-LinkedIn_icon.svg.png"
               alt="LinkedIn Icon"
               width={32}
               height={32}
             />
-          </a>
-          <a href="https://github.com/MudassarRassol" target="_blank" className="hover:scale-125 transition-all duration-300">
+          </Link>
+          <Link href="https://github.com/MudassarRassol" target="_blank" className="hover:scale-125 transition-all duration-300">
             <Image
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/GitHub_Invertocat_Logo.svg/240px-GitHub_Invertocat_Logo.svg.png"
               alt="Github  Icon"
               width={32}
               height={32}
             />
-          </a>
+          </Link>
           
 
         </div>

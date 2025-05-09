@@ -42,6 +42,7 @@ const Contact = () => {
       setsending(false); // Enable form
       setFormData({ name: "", email: "", subject: "", message: "" }); // Reset form
     } catch (error) {
+      setsending(false)
       if (axios.isAxiosError(error) && error.response?.data?.error) {
         toast.error(" Error  occurred  ")
         setStatus({ success: "", error: error.response.data.error });
