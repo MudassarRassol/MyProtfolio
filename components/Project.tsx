@@ -6,7 +6,7 @@ const Project = () => {
   const projects = [
     {
       name: "Book Donation",
-      link: "https://bookdonation.netlify.app/",
+      link: "https://book-donation-orcin.vercel.app/pages/contact",
       image: "/proj1.png" // Add image path here
     },
     // Add more projects like this:
